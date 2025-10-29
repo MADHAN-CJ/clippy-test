@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const { randomUUID } = require('crypto');
-const { dbInit } = require('./services/dbService');
 
 const app = express();
 
@@ -43,12 +42,9 @@ app.get('/health', async (req, res) => {
 // Start server after database initialization
 const startServer = async () => {
   try {
-    await initializeDatabase();
-    
     const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
       console.log(`✅ Test app running at http://localhost:${PORT}`);
-      console.log(`📊 Database: SQLite (${process.env.DB_FILE || 'dev.db'})`);
     });
   } catch (error) {
     console.error('❌ Failed to start server:', error);
