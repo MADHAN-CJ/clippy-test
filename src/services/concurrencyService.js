@@ -156,6 +156,5 @@ module.exports = {
   parallelAll,
   unawaitedAsync,
   deadlockDemo,
-  sharedMutableState,
   promiseRejectionHandling
 };
